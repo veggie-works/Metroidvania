@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5cisyivpic2s"]
+
+[ext_resource type="Script" path="res://scripts/levels/base_level.gd" id="1_4jkmw"]
+[ext_resource type="Texture2D" uid="uid://do1b0jd1s0j7t" path="res://icon.svg" id="2_7gdua"]
+[ext_resource type="PackedScene" uid="uid://bmqoaf40cddce" path="res://scenes/actors/grounded/player/player.tscn" id="3_rvxfd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qb6gf"]
+size = Vector2(128, 128)
+
+[node name="base_level" type="Node2D"]
+editor_description = "Base level for all levels."
+script = ExtResource("1_4jkmw")
+
+[node name="platform0" type="StaticBody2D" parent="."]
+position = Vector2(1025, 464)
+scale = Vector2(7.36, 0.4)
+
+[node name="sprite" type="Sprite2D" parent="platform0"]
+texture = ExtResource("2_7gdua")
+
+[node name="collision" type="CollisionShape2D" parent="platform0"]
+shape = SubResource("RectangleShape2D_qb6gf")
+
+[node name="platform1" type="StaticBody2D" parent="."]
+position = Vector2(317, 618)
+scale = Vector2(7.36, 0.4)
+
+[node name="sprite" type="Sprite2D" parent="platform1"]
+texture = ExtResource("2_7gdua")
+
+[node name="collision" type="CollisionShape2D" parent="platform1"]
+shape = SubResource("RectangleShape2D_qb6gf")
+
+[node name="player" parent="." instance=ExtResource("3_rvxfd")]
+position = Vector2(281, 424)
+collision_layer = 4
